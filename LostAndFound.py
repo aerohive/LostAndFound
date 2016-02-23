@@ -13,8 +13,8 @@ import datetime #to get the current date, and format dates for the APIs
 
 #---Variables you will need to setup for your application:
 #See http://developer.aerohive.com and navigate to 'My Applications'
-clientID = "19a087a8"
-clientSecret = ""
+clientID = "YOUR-CLIENT-ID"
+clientSecret = "YOUR-CLIENT-SECRET"
 redirectURL = "https://mysite.com"
 UTCoffset = '-08:00' # Your timezone - not critical for lost & found since we're not seperating days but still needed for API calls.
 # Let's not perster users for theirs, but of you want to change it here it is...
@@ -120,4 +120,4 @@ JSON = response.json()
 for AP in JSON["data"]:
     for client in AP["observations"]:
         if client["clientMac"] == lostDeviceMac:
-            print "Last known location: X: " + str(client["x"]) + "Y: " + str(client["y"]) + "\t Seen: " + str(client["seenTime"])
+            print "Last known location: X: " + str(client["x"]) + "Y: " + str(client["y"]) + " | Lat:" + str(client["lat"]) + " Long:" + str(client["lng"]) + "\t Seen: " + str(client["seenTime"])
